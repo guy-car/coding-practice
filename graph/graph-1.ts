@@ -1,7 +1,12 @@
 // Step 1: Create a simple graph representing friendships
 // Each person is connected to their friends
 
-const friendNetwork = {
+// Define the type for our friend network
+type FriendNetwork = {
+    [key: string]: string[]
+}
+
+const friendNetwork: FriendNetwork = {
     'Alice': ['Bob', 'Charlie'],
     'Bob': ['Alice', 'David'],
     'Charlie': ['Alice', 'David', 'Eve'],
@@ -25,7 +30,7 @@ for (const person in friendNetwork) {
 // Step 2: Simple search function
 // Let's find if we can reach one person from another through the network
 
-function canReach(graph: Record<string, string[]>, start: string, target: string): boolean {
+function canReach(graph: FriendNetwork, start: string, target: string): boolean {
     // If we're looking for ourselves, we're already there!
     if (start === target) return true
 
